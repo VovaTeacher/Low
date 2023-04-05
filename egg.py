@@ -33,7 +33,7 @@ def start():
 async def game():
     global old_time
 
-    #ловля яиц
+    #ловля яєць
     for egg in eggs:
         if egg.is_touching(backet):
             eggs.remove(egg)
@@ -41,14 +41,14 @@ async def game():
             eggs_amount.words=str(int(eggs_amount.words)+1)
         egg.y=egg.y-5
 
-        #победа
+        #перемога
         if int(eggs_amount.words) == 10:
             lose = play.new_text(words='YOU WIN', x=0, y=0, color='yellow', font_size=100)
             backet.hide()
             await play.timer(seconds=1)
             quit()
 
-        #проигрыш
+        #програш
         if egg.y < backet.y:
             lose = play.new_text(words='YOU LOSE', x=0, y=0, color='red', font_size=100)
             backet.hide()
@@ -63,7 +63,7 @@ async def game():
     else:
         backet.physics.x_speed = 0
 
-    #новые яйцв
+    #нові яєць
     if time.time()-old_time > 3:
         new_egg = play.new_circle(color='white', x=0, y=0, radius=30, border_color='grey', border_width=2)
         #new_egg = play.new_image(image='pic.png', x=0, y=0, angle=0, size=30, transparency=100)
